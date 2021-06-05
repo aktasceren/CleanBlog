@@ -27,12 +27,18 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <% for (let i =0; i < posts.length; i++) { %>
-          <h3>
-          <%= posts[i].title %>
-          </h3>
-          <p></p>
-          <%= posts[i].detail %>
-          <hr>
+            <div class="post-preview">
+              <a href="/posts/<%= posts[i]._id %>">
+                <h2 class="post-title">
+                  <%= posts[i].title %>
+                </h2>
+                <h3 class="post-subtitle">
+                  <%= posts[i].detail.slice(0,90)+" ..." %>
+                </h3>
+              </a>
+              <p class="post-meta">Posted on <%= posts[i].dateCreated %></p>
+              <hr>
+            </div>
           <% } %>
         <!-- Pager -->
         <div class="clearfix">
